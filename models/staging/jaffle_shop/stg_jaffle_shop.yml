@@ -2,18 +2,23 @@ version: 2
 
 models:
   - name: stg_customers
+    description: Staged customer data for the application - one row per customer
     columns:
       - name: customer_id
+        description: Primary key for the customers
         tests:
           - unique
           - not_null
   - name: stg_orders
+    description: Staged order data for the application - one row per order
     columns:
       - name: order_id
+        description: Primary key for the orders
         tests:
           - unique
           - not_null
       - name: status
+        description: '{{doc("order_status")}}'
         tests: 
           - accepted_values:
               values:
